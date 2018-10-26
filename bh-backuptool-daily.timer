@@ -1,0 +1,9 @@
+# See systemd.timers and systemd.time manpages for details
+[Unit]
+Description=BH-Backuptool daily snapshot timer
+
+[Timer]
+OnCalendar=daily
+
+[Install]
+WantedBy=timers.target

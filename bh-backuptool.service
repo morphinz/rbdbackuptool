@@ -1,0 +1,6 @@
+[Unit]
+Description=RBD Backup Tool
+
+[Service]
+Type=oneshot
+ExecStart=/opt/bin/rbdbackuptool.sh
