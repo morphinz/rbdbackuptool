@@ -1,6 +1,6 @@
-# rbdbackuptool
-Its a rbd backuptool service written with bash, for ceph.
-If your rbd names do not start with "sda,sdb" then you should edit the rbdbackup.conf
+# rbdbackuptool  
+Its a rbd backuptool service written with bash, for ceph.  
+If your rbd names do not start with "sda,sdb" then you should edit the rbdbackup.conf  
 
 ```
 sda=false #
