@@ -1,6 +1,6 @@
 # See systemd.timers and systemd.time manpages for details
 [Unit]
-Description=BH-Backuptool weekly snapshot timer
+Description=RBD Backuptool weekly snapshot timer
 
 [Timer]
 OnCalendar=weekly
