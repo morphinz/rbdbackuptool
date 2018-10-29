@@ -1,7 +1,7 @@
 #!/bin/bash -xe
 set -e 
-config=/root/ozkan/rbdbackup.conf
-logfile=/root/ozkan/rbdbackup.log
+config=/etc/rbdbackup.conf
+logfile=/var/log/rbdbackup.log
 poollist=/tmp/poollist.tmp
 backuplist=/tmp/backuplist.tmp
 source $config
