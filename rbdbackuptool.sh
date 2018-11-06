@@ -1,4 +1,4 @@
-#!/bin/bash -xe
+#!/bin/bash
 config=/etc/rbdbackup.conf
 logfile=/var/log/rbdbackup.log
 poollist=/tmp/poollist.tmp
