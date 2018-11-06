@@ -1,5 +1,4 @@
 #!/bin/bash -xe
-set -e 
 config=/etc/rbdbackup.conf
 logfile=/var/log/rbdbackup.log
 poollist=/tmp/poollist.tmp
@@ -89,19 +88,24 @@ else
 fi
 
 if [ "$images" == true ]; then
-        mkdir -p $destination/images
-        cp /var/buluthan/image-meta/* $destination/images/
-        cat $poollist | grep '@image' >> $backuplist
+for i in $(ls $imgdir)
+do 
+uuid=`jq -r '.uuid' $imgdir/$i` 
+source=`jq -r '.source' $imgdir/$i` 
+echo "Backup started for image $poolname/$uuid" >> $logfile
+mkdir -p $destination/images
+rbd export $source - | pigz --fast > $destination/images/$uuid-image.gz
+cp $imgdir/$i $destination/images/
+echo -e "Backup finished. \n" >> $logfile
+done
 
 else
-        echo "images == false" >> $logfile
+        echo -e "images == false \n" >> $logfile
 fi
-
 
 #save backups
 success=0
 failed=0
-set +e
 
 for i in $(cat $backuplist)
 do
