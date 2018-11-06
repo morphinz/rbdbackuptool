@@ -3,6 +3,7 @@ config=/etc/rbdbackup.conf
 logfile=/var/log/rbdbackup.log
 poollist=/tmp/poollist.tmp
 backuplist=/tmp/backuplist.tmp
+imgdir=/var/buluthan/image-meta
 source $config
 
 #getting started
