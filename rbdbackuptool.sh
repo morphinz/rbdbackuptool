@@ -10,6 +10,14 @@ source $config
 echo -e "\n *BACKUP TOOL STARTED!*" >> $logfile 
 date >> $logfile 
 
+#checklogsize
+if [[ $(find $logfile -type f -size +52520000c 2>/dev/null) ]]; then
+        echo -e "logfile bigger then 50MiB. Logs are rotating" >> $logfile
+pigz -f $logfile
+echo "Logfile compressed with pigz." >> $logfile
+echo -e "\n *BACKUP TOOL STARTED!*" >> $logfile
+date >> $logfile
+fi
 
 #Functions start
 function nfs { 
